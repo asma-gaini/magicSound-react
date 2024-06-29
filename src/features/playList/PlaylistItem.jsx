@@ -11,30 +11,30 @@ function PlaylistItem({ item }) {
   } = item;
 
   return (
-    <li class="playList-item">
+    <li className="playList-item">
       <div
-        class="playList-item-div-image"
+        className="playList-item-div-image"
         id="1"
         onclick="togglePlay(this.id)"
         data-bs-toggle="modal"
         data-bs-target="#myModal"
         setmusichasbeencalled="false"
       >
-        <img src={image} alt={title} class="playList-item-image" />
-        <img src="../image/svg/play.svg" class="svg" id="playSvg" />
-        <img src="../image/svg/pause.svg" class="svg" id="pauseSvg" />
+        <img src={image} alt={title} className="playList-item-image" />
+        <img src="../image/svg/play.svg" className="svg" id="playSvg" />
+        <img src="../image/svg/pause.svg" className="svg" id="pauseSvg" />
       </div>
-      <div class="playList-item-main">
-        <div class="playList-item-info">
-          <p class="info-title">{title}</p>
-          <p class="info-subtitle">{artist}</p>
+      <div className="playList-item-main">
+        <div className="playList-item-info">
+          <p className="info-title">{title}</p>
+          <p className="info-subtitle">{artist}</p>
         </div>
-        <div class="LeftItemesPlayList">
-          <p class="songTime">{time}</p>
-          <a class="favoritLink" href="#">
+        <div className="LeftItemesPlayList">
+          <p className="songTime">{time}</p>
+          <a className="favoritLink" href="#">
             <img
               src="../image/svg/heart-empty.svg"
-              class="favoritSvg"
+              className="favoritSvg"
               id={id}
               onclick="favoritSvg(this.id)"
             />

@@ -1,3 +1,4 @@
+import ModalSingleSong from "./ModalSingleSong.jsx";
 import PlaylistItem from "./PlaylistItem.jsx";
 
 const data_music_player = [
@@ -258,14 +259,17 @@ const data_music_player = [
 function Playlist() {
   const data = data_music_player;
   return (
-    <div className="music-app">
-      <div className="content">
-        <ul className="playList">
-          {data.map((item) => (
-            <PlaylistItem item={item} key={item.id} />
-          ))}
-        </ul>
+    <div id="playerList">
+      <div className="music-app">
+        <div className="content">
+          <ul className="playList">
+            {data.map((item) => (
+              <PlaylistItem item={item} key={item.id} />
+            ))}
+          </ul>
+        </div>
       </div>
+      <ModalSingleSong />
     </div>
   );
 }
