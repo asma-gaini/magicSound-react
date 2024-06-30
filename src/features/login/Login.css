@@ -1,0 +1,7 @@
+.loginLogo {
+  width: 175px;
+}
+.inputLogin {
+  color: var(--bs-body-color) !important;
+  background-color: var(--bs-body-bg) !important;
+}
