@@ -10,6 +10,7 @@ const router = createBrowserRouter([
 
     children: [
       { path: "/", element: <Playlist /> },
+
       { path: "/uploadMusic", element: <UploaderMusic /> },
     ],
   },

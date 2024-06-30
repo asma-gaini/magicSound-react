@@ -1,5 +1,6 @@
-import ModalSingleSong from "./ModalSingleSong.jsx";
 import PlaylistItem from "./PlaylistItem.jsx";
+
+import { useState } from "react";
 
 const data_music_player = [
   {
@@ -258,6 +259,7 @@ const data_music_player = [
 
 function Playlist() {
   const data = data_music_player;
+  const [modalShow, setModalShow] = useState(false);
   return (
     <div id="playerList">
       <div className="music-app">
@@ -269,7 +271,6 @@ function Playlist() {
           </ul>
         </div>
       </div>
-      <ModalSingleSong />
     </div>
   );
 }

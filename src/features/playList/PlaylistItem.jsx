@@ -1,3 +1,9 @@
+import { useState } from "react";
+import "./ModalSingleSong.css";
+
+import ModalSingleSong from "./ModalSingleSong";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 function PlaylistItem({ item }) {
   const {
     title,
@@ -9,13 +15,16 @@ function PlaylistItem({ item }) {
     time,
     textMusic,
   } = item;
-
+  const [modalShow, setModalShow] = useState(false);
+ 
   return (
     <li className="playList-item">
       <div
         className="playList-item-div-image"
         id="1"
-        onclick="togglePlay(this.id)"
+        // variant="primary"
+        // onClick={() => setModalShow(true)}
+        // onclick={togglePlay(1)}
         data-bs-toggle="modal"
         data-bs-target="#myModal"
         setmusichasbeencalled="false"
@@ -36,11 +45,16 @@ function PlaylistItem({ item }) {
               src="../image/svg/heart-empty.svg"
               className="favoritSvg"
               id={id}
-              onclick="favoritSvg(this.id)"
+              // onclick={favoritSvg(this.id)}
             />
           </a>
         </div>
       </div>
+
+      <Button variant="primary" onClick={() => setModalShow(true)}>
+        modal
+      </Button>
+      <ModalSingleSong show={modalShow} onHide={() => setModalShow(false)} />
     </li>
   );
 }
