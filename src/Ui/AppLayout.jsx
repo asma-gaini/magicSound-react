@@ -5,6 +5,8 @@ import Header from "./Header";
 function AppLayout() {
   return (
     <div>
+      // {/* <div className="container-fluid"> */}
+      {/* <div className="row flex-nowrap"> */}
       <Header />
       <VerticalNavigation />
       <div>
@@ -12,6 +14,7 @@ function AppLayout() {
           <Outlet />
         </main>
       </div>
+      {/* </div> */}
     </div>
   );
 }

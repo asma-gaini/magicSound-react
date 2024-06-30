@@ -1,0 +1,23 @@
+.bg-dark {
+  border-radius: 10px;
+  margin: 18px 0px 0px 10px !important;
+}
+.setColor {
+  color: #5c848e !important;
+}
+.dashboardSvg {
+  width: 30px;
+}
+.nav-link:focus,
+.nav-link:hover {
+  color: #e0e0ec !important;
+}
+.fs-5 {
+  color: #decdc3 !important;
+}
+/* .nav-link {
+    margin-left: 10px;
+  } */
+.subLinkContent {
+  margin-left: 20px;
+}
