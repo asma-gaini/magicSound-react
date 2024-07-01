@@ -4,13 +4,15 @@ import Header from "./Header";
 
 function AppLayout() {
   return (
-    <div>
-      <Header />
-      <VerticalNavigation />
-      <div>
-        <main>
-          <Outlet />
-        </main>
+    <div className="">
+      <div className="">
+        {/* <Header /> */}
+        <VerticalNavigation />
+        <div>
+          <main className="">
+            <Outlet />
+          </main>
+        </div>
       </div>
     </div>
   );
