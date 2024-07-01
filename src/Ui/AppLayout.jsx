@@ -5,7 +5,7 @@ import Header from "./Header";
 function AppLayout() {
   return (
     <div>
-      // {/* <div className="container-fluid"> */}
+      {/* <div className="container-fluid"> */}
       {/* <div className="row flex-nowrap"> */}
       <Header />
       <VerticalNavigation />
