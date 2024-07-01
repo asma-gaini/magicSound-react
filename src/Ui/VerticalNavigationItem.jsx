@@ -13,19 +13,21 @@ function VerticalNavigationItem({ item }) {
         <img src={svg} className="dashboardSvg" />
         <span className="ms-1 d-none d-sm-inline">{name}</span>
       </a>
-      {subLink != "null" ? (
+      {subLink && (
         <ul
           class="collapse show nav flex-column subLinkContent"
           data-bs-parent="#menu"
           id={subid}
         >
-          <li>
-            <a href="#" class="nav-link px-0" id="2">
-              <span class="d-none d-sm-inline">item 1</span>
-            </a>
-          </li>
+          {subLink.map((l) => (
+            <li>
+              <a href="#" class="nav-link px-0" id={l.mainId}>
+                <span class="d-none d-sm-inline">{l.name}</span>
+              </a>
+            </li>
+          ))}
         </ul>
-      ) : null}
+      )}
     </li>
   );
 }

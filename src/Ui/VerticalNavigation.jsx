@@ -7,8 +7,6 @@ const vertical_navigation = [
     name: "Home",
     svg: "../image/svg/home-svgrepo-com.svg",
     target: "#",
-    subid: "null",
-    subLink: "null",
   },
   {
     mainId: "2",
@@ -32,8 +30,6 @@ const vertical_navigation = [
     name: "Order",
     svg: "../image/svg/cart-check-svgrepo-com.svg",
     target: "#",
-    subid: "null",
-    subLink: "null",
   },
 ];
 
