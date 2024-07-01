@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Example from "./features/playList/Example";
 
 import Playlist from "./features/playList/Playlist";
 import UploaderMusic from "./features/uploaderMusic/UploaderMusic";
@@ -10,6 +11,7 @@ const router = createBrowserRouter([
 
     children: [
       { path: "/", element: <Playlist /> },
+      { path: "/test", element: <Example /> },
 
       { path: "/uploadMusic", element: <UploaderMusic /> },
     ],

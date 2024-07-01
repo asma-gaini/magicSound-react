@@ -4,6 +4,7 @@ import "./ModalSingleSong.css";
 import ModalSingleSong from "./ModalSingleSong";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import OptionSong from "./OptionSong";
 function PlaylistItem({ item }) {
   const {
     title,
@@ -16,7 +17,7 @@ function PlaylistItem({ item }) {
     textMusic,
   } = item;
   const [modalShow, setModalShow] = useState(false);
- 
+
   return (
     <li className="playList-item">
       <div
@@ -50,6 +51,8 @@ function PlaylistItem({ item }) {
           </a>
         </div>
       </div>
+
+      <OptionSong id={id} />
 
       <Button variant="primary" onClick={() => setModalShow(true)}>
         modal
