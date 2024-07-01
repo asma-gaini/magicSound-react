@@ -10,8 +10,6 @@ function ModalSingleSong(props) {
       size="lg"
       aria-labelledby="contained-modal-title-vcenter"
       centered
-      className="modal"
-      id="myModal"
     >
       <Modal.Header closeButton>
         <Modal.Title id="contained-modal-title-vcenter">
