@@ -5,6 +5,8 @@ import ModalSingleSong from "./ModalSingleSong";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import OptionSong from "./OptionSong";
+import { useDispatch } from "react-redux";
+import { openSongModal, setSongModalInfo } from "../../store/slices/appSlice";
 function PlaylistItem({ item }) {
   const {
     title,
@@ -16,15 +18,20 @@ function PlaylistItem({ item }) {
     time,
     textMusic,
   } = item;
-  const [modalShow, setModalShow] = useState(false);
 
+  const dispatch = useDispatch();
+
+  const handleOpenModal = () => {
+    dispatch(setSongModalInfo(item));
+    dispatch(openSongModal());
+  };
   return (
     <li className="playList-item">
       <div
         className="playList-item-div-image"
         id="1"
-        // variant="primary"
-        // onClick={() => setModalShow(true)}
+        variant="primary"
+        onClick={handleOpenModal}
         // onclick={togglePlay(1)}
         data-bs-toggle="modal"
         data-bs-target="#myModal"
@@ -53,11 +60,10 @@ function PlaylistItem({ item }) {
       </div>
 
       <OptionSong id={id} />
-
-      <Button variant="primary" onClick={() => setModalShow(true)}>
+      {/* 
+      <Button variant="primary" onClick={handleOpenModal}>
         modal
-      </Button>
-      <ModalSingleSong show={modalShow} onHide={() => setModalShow(false)} />
+      </Button> */}
     </li>
   );
 }

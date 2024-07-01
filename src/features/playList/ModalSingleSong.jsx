@@ -2,8 +2,11 @@ import "./ModalSingleSong.css";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
+import { useSelector } from "react-redux";
 
 function ModalSingleSong(props) {
+  const songInfo = useSelector((store) => store.app.songModalInfo);
+  
   return (
     <Modal
       {...props}
@@ -24,44 +27,33 @@ function ModalSingleSong(props) {
       <Modal.Body>
         <div className="modalContent-body">
           <div className="modalSong-Image">
-            <img
-              src="../image/music cover/shaye-nistameton.png"
-              alt=""
-              id="single-song-image"
-            />
+            <img src={songInfo?.image} alt="" id="single-song-image" />
           </div>
           <div className="modalSong-info">
             <h3 className="modalSong-title" id="modalSong-title">
-              khial khosh-6
+              {songInfo?.title}
             </h3>
             <h3 className="modalSong-artistName" id="modalSong-artistName">
-              alireza ghorbani
+              {songInfo?.artist}
             </h3>
           </div>
           <audio
-            src="https://dl.rozmusic.com/Music/1399/04/29/Alireza%20Ghorbani%20-%20Khiale%20Khosh%20%28128%29.mp3"
+            src={songInfo?.audioSrc}
             controls="controls"
             alt=""
             className="modualSong-audio"
             id="single-song"
           ></audio>
           <div className="text">
-            <p className="textContent englishFont">khial khosh</p>
-            <p className="textContent persionFont">خیال خوش</p>
-            <p className="textContent englishFont"> I gave you your dreams</p>
-            <p className="textContent persionFont">من رویا هات رو بهت دادم</p>
-            <p className="textContent englishFont"> Cause you ment the world</p>
-            <p className="textContent persionFont">چون تو دنیای من بودی</p>
-            <p className="textContent englishFont">
-              So did I deserve to be left in hurt
-            </p>
-            <p className="textContent persionFont">
-              پس واقعا لیاقتم این بود که منو با این همه درد تنها بذاری
-            </p>
-            <p className="textContent englishFont">So you think I don’t know</p>
-            <p className="textContent persionFont">فکر می کنی نمیدونم</p>
-            <p className="textContent englishFont">You’re out of control</p>
-            <p className="textContent persionFont">که تو غیر قابل کنترلی</p>
+            {songInfo?.textMusic.split("/").map((text, i) => (
+              <p
+                className={`textContent ${
+                  i % 2 === 0 ? "persionFont" : "englishFont"
+                }`}
+              >
+                {text}
+              </p>
+            ))}
           </div>
         </div>
       </Modal.Body>

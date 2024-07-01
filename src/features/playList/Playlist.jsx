@@ -1,6 +1,7 @@
+import { useDispatch, useSelector } from "react-redux";
+import { closeSongModal } from "../../store/slices/appSlice.js";
 import PlaylistItem from "./PlaylistItem.jsx";
-
-import { useState } from "react";
+import ModalSingleSong from "./ModalSingleSong";
 
 const data_music_player = [
   {
@@ -259,19 +260,26 @@ const data_music_player = [
 
 function Playlist() {
   const data = data_music_player;
-  const [modalShow, setModalShow] = useState(false);
+  const dispatch = useDispatch();
+  const modalOpen = useSelector((store) => store.app.songModalOpen);
   return (
-    <div id="playerList">
-      <div className="music-app">
-        <div className="content">
-          <ul className="playList">
-            {data.map((item) => (
-              <PlaylistItem item={item} key={item.id} />
-            ))}
-          </ul>
+    <>
+      <div id="playerList">
+        <div className="music-app">
+          <div className="content">
+            <ul className="playList">
+              {data.map((item) => (
+                <PlaylistItem item={item} key={item.id} />
+              ))}
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
+      <ModalSingleSong
+        show={modalOpen}
+        onHide={() => dispatch(closeSongModal())}
+      />
+    </>
   );
 }
 
