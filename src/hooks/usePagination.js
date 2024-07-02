@@ -20,6 +20,7 @@ const usePagination = (pageSize) => {
     pageSize * (currentPage - 1),
     pageSize * currentPage
   );
+  const pagination_size = 3;
   const handleNextPage = () => {
     const next = currentPage + 1;
     if (next > page_lenght) return;
@@ -38,6 +39,7 @@ const usePagination = (pageSize) => {
     songItemList,
     handleNextPage,
     handlePrevPage,
+    pagination_size,
   };
 };
 export default usePagination;
