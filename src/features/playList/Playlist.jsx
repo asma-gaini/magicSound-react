@@ -4,6 +4,8 @@ import PlaylistItem from "./PlaylistItem.jsx";
 import ModalSingleSong from "./ModalSingleSong";
 import { songs_data } from "../../utils/constants";
 import usePagination from "../../hooks/usePagination.js";
+import "./pagination/pagination.css";
+import Pagination from "./pagination/Pagination.jsx";
 
 function Playlist() {
   const dispatch = useDispatch();
@@ -13,8 +15,9 @@ function Playlist() {
     setCurrentPage,
     handleNextPage,
     handlePrevPage,
+    page_lenght,
     currentPage,
-    pageItems,
+    songItemList,
   } = usePagination(4);
 
   return (
@@ -23,15 +26,18 @@ function Playlist() {
         <div className="music-app">
           <div className="content">
             <ul className="playList">
-              {pageItems.map((item) => (
+              {songItemList.map((item) => (
                 <PlaylistItem item={item} key={item.id} />
               ))}
             </ul>
           </div>
         </div>
-        <button onClick={handlePrevPage}>Previous</button>
-        <span>{currentPage}</span>
-        <button onClick={handleNextPage}>next</button>
+        <Pagination
+          handleNextPage={handleNextPage}
+          handlePrevPage={handlePrevPage}
+          currentPage={currentPage}
+          page_lenght={page_lenght}
+        />
       </div>
       <ModalSingleSong
         show={modalOpen}
