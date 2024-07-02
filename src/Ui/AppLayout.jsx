@@ -4,12 +4,12 @@ import Header from "./Header";
 
 function AppLayout() {
   return (
-    <div className="">
-      <div className="">
+    <div className="container-fluid">
+      <div className="row flex-nowrap">
         {/* <Header /> */}
         <VerticalNavigation />
-        <div>
-          <main className="">
+        <div className="col py-3">
+          <main>
             <Outlet />
           </main>
         </div>
