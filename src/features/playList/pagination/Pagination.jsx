@@ -11,6 +11,10 @@ function Pagination({
   for (let i = 0; i < pagination_size; i++) {
     pageCount.push(i + 1);
   }
+  const pagecountLong = [];
+  for (let i = 0; i < pagination_size; i++) {
+    pagecountLong.push(i + (currentPage - 1));
+  }
 
   return (
     <div className="pagination-modal">
@@ -21,7 +25,7 @@ function Pagination({
           </a>
         </li>
 
-        {currentPage > pagination_size - 1 && (
+        {currentPage > pagination_size - 1 ? (
           <>
             <li
               class="page-item PaginationFirst"
@@ -33,19 +37,33 @@ function Pagination({
               </a>
             </li>
             <li class="page-item PaginationFirst">...</li>
+            {pagecountLong.map((page) => (
+              <li className="page-item">
+                <a
+                  className={`page-link page-link-num ${
+                    page == currentPage ? "active" : ""
+                  }`}
+                >
+                  {page}
+                </a>
+              </li>
+            ))}
+          </>
+        ) : (
+          <>
+            {pageCount.map((page) => (
+              <li className="page-item">
+                <a
+                  className={`page-link page-link-num ${
+                    page == currentPage ? "active" : ""
+                  }`}
+                >
+                  {page}
+                </a>
+              </li>
+            ))}
           </>
         )}
-        {pageCount.map((page) => (
-          <li className="page-item">
-            <a
-              className={`page-link page-link-num ${
-                page == currentPage ? "active" : ""
-              }`}
-            >
-              {page}
-            </a>
-          </li>
-        ))}
 
         {page_lenght > pagination_size && (
           <>
