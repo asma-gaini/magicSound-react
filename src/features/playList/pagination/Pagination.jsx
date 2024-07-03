@@ -6,6 +6,7 @@ function Pagination({
   currentPage,
   page_lenght,
   pagination_size,
+  setPage,
 }) {
   const pageCount = [];
   for (let i = 0; i < pagination_size; i++) {
@@ -13,7 +14,11 @@ function Pagination({
   }
   const pagecountLong = [];
   for (let i = 0; i < pagination_size; i++) {
-    pagecountLong.push(i + (currentPage - 1));
+    if (currentPage == page_lenght) {
+      pagecountLong.push(i + (page_lenght - (pagination_size - 1)));
+    } else {
+      pagecountLong.push(i + (currentPage - 1));
+    }
   }
 
   return (
@@ -27,63 +32,71 @@ function Pagination({
 
         {currentPage > pagination_size - 1 ? (
           <>
-            <li
-              class="page-item PaginationFirst"
-              id="1"
-              onclick="setPagination(this.id)"
-            >
-              <a class="page-link PaginationFirst page-link-num" href="#">
+            <li class="page-item PaginationFirst" id="1">
+              <span
+                onClick={() => {
+                  setPage(1);
+                }}
+                class="page-link PaginationFirst page-link-num"
+              >
                 1
-              </a>
+              </span>
             </li>
             <li class="page-item PaginationFirst">...</li>
             {pagecountLong.map((page) => (
-              <li className="page-item">
-                <a
+              <li className="page-item" id={page}>
+                <span
+                  onClick={() => {
+                    setPage(page);
+                  }}
                   className={`page-link page-link-num ${
                     page == currentPage ? "active" : ""
                   }`}
                 >
                   {page}
-                </a>
+                </span>
               </li>
             ))}
           </>
         ) : (
           <>
             {pageCount.map((page) => (
-              <li className="page-item">
-                <a
+              <li className="page-item" id={page}>
+                <span
+                  onClick={() => {
+                    setPage(page);
+                  }}
                   className={`page-link page-link-num ${
                     page == currentPage ? "active" : ""
                   }`}
                 >
                   {page}
-                </a>
+                </span>
               </li>
             ))}
           </>
         )}
 
-        {page_lenght > pagination_size && (
+        {page_lenght > pagination_size && currentPage <= 10 && (
           <>
             <li className="page-item PaginationLenght">...</li>
-            <li
-              className="page-item PaginationLenght"
-              id="12"
-              onclick="setPagination(this.id)"
-            >
-              <a className="page-link PaginationLenght page-link-num" href="#">
+            <li className="page-item PaginationLenght" id={page_lenght}>
+              <span
+                onClick={() => {
+                  setPage(page_lenght);
+                }}
+                className="page-link PaginationLenght page-link-num"
+              >
                 {page_lenght}
-              </a>
+              </span>
             </li>
           </>
         )}
 
         <li className="page-item">
-          <a className="page-link" onClick={handleNextPage}>
+          <span className="page-link" onClick={handleNextPage}>
             next
-          </a>
+          </span>
         </li>
       </ul>
     </div>

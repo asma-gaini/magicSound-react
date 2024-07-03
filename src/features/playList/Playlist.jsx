@@ -19,6 +19,7 @@ function Playlist() {
     currentPage,
     songItemList,
     pagination_size,
+    handleSetCurrentPage
   } = usePagination(1);
 
   return (
@@ -39,6 +40,8 @@ function Playlist() {
           currentPage={currentPage}
           page_lenght={page_lenght}
           pagination_size={pagination_size}
+          setCurrentPage={setCurrentPage}
+          setPage={setPage}
         />
       </div>
       <ModalSingleSong

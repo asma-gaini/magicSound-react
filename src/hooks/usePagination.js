@@ -12,7 +12,6 @@ const usePagination = (pageSize) => {
     navigate(`/?page=${currentPage}`);
   }, [currentPage]);
 
-  useEffect(() => {}, []);
   const setPage = (page) => {
     setCurrentPage(page);
   };
@@ -31,6 +30,7 @@ const usePagination = (pageSize) => {
     if (Previous < 1) return;
     setCurrentPage(Previous);
   };
+
   return {
     setPage,
     setCurrentPage,
