@@ -23,6 +23,10 @@
 .displayPaginationLenght {
   display: none;
 }
+.page-link {
+  cursor: pointer;
+}
+
 /* text-align: center !important;
   --bs-pagination-bg: #6dba7e !important;
   --bs-pagination-color: #161616 !important;
