@@ -1,7 +1,17 @@
+import { useState } from "react";
 import "./verticalNavigation.css";
 
 function VerticalNavigationItem({ item }) {
   const { mainId, name, svg, target, subid, subLink } = item;
+  const [showDropdown, setShowDropdown] = useState(false);
+
+  function handleDropdownSublink(subId) {
+    if (showDropdown == false) {
+      setShowDropdown(true);
+    } else {
+      setShowDropdown(false);
+    }
+  }
 
   return (
     <li>
@@ -9,20 +19,30 @@ function VerticalNavigationItem({ item }) {
         href={target}
         className="nav-link align-middle px-0 setColor"
         id={mainId}
+        subId={subLink && subid}
       >
         <img src={svg} className="dashboardSvg" />
-        <span className="ms-1 d-none d-sm-inline">{name}</span>
+        <span
+          onClick={() => {
+            subLink && handleDropdownSublink(subid);
+          }}
+          className="ms-1 d-none d-sm-inline"
+        >
+          {name}
+        </span>
       </a>
       {subLink && (
         <ul
-          class="collapse show nav flex-column subLinkContent"
+          className={`collapse nav flex-column subLinkContent ${
+            showDropdown == true ? "show" : ""
+          }`}
           data-bs-parent="#menu"
           id={subid}
         >
-          {subLink.map((l) => (
+          {subLink.map((link) => (
             <li>
-              <a href="#" class="nav-link px-0" id={l.mainId}>
-                <span class="d-none d-sm-inline">{l.name}</span>
+              <a href="#" className="nav-link px-0" id={link.mainId}>
+                <span className="d-none d-sm-inline">{link.name}</span>
               </a>
             </li>
           ))}

@@ -30,6 +30,17 @@ const vertical_navigation = [
     name: "Order",
     svg: "../image/svg/cart-check-svgrepo-com.svg",
     target: "#",
+    subid: "sub2",
+    subLink: [
+      {
+        mainId: "6",
+        name: "item 1",
+      },
+      {
+        mainId: "7",
+        name: "item 2",
+      },
+    ],
   },
 ];
 
