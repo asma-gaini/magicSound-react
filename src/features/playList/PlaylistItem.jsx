@@ -21,10 +21,21 @@ function PlaylistItem({ item }) {
 
   const dispatch = useDispatch();
 
+  const [favoritSong, setFavoritSong] = useState(
+    "../image/svg/heart-empty.svg"
+  );
+
   const handleOpenModal = () => {
     dispatch(setSongModalInfo(item));
     dispatch(openSongModal());
   };
+  function handleFavoritSong() {
+    if (favoritSong == "../image/svg/heart-empty.svg") {
+      setFavoritSong("../image/svg/heart-full.svg");
+    } else {
+      setFavoritSong("../image/svg/heart-empty.svg");
+    }
+  }
   return (
     <li className="playList-item">
       <div
@@ -50,10 +61,12 @@ function PlaylistItem({ item }) {
           <p className="songTime">{time}</p>
           <a className="favoritLink" href="#">
             <img
-              src="../image/svg/heart-empty.svg"
+              src={favoritSong}
               className="favoritSvg"
               id={id}
-              // onclick={favoritSvg(this.id)}
+              onClick={(e) => {
+                handleFavoritSong(e);
+              }}
             />
           </a>
         </div>
