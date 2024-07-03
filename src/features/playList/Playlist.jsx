@@ -19,7 +19,6 @@ function Playlist() {
     currentPage,
     songItemList,
     pagination_size,
-    handleSetCurrentPage
   } = usePagination(1);
 
   return (

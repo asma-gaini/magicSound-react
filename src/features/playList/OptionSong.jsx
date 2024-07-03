@@ -2,10 +2,11 @@ import "./optionSong.css";
 import "./ModalSingleSong.css";
 
 import OptionSongItem from "./OptionSongItem";
-import ButtonGroup from 'react-bootstrap/ButtonGroup';
-import Dropdown from 'react-bootstrap/Dropdown';
-import DropdownButton from 'react-bootstrap/DropdownButton';
-import SplitButton from 'react-bootstrap/SplitButton';
+import ButtonGroup from "react-bootstrap/ButtonGroup";
+import Dropdown from "react-bootstrap/Dropdown";
+import DropdownButton from "react-bootstrap/DropdownButton";
+import SplitButton from "react-bootstrap/SplitButton";
+import { useState } from "react";
 
 const optionSong_player = [
   {
@@ -42,7 +43,14 @@ const optionSong_player = [
 
 function OptionSong({ id }) {
   const OptionPlayerData = optionSong_player;
-
+  const [showOption, setShowOption] = useState(false);
+  function handleDropdownOption() {
+    if (showOption == false) {
+      setShowOption(true);
+    } else {
+      setShowOption(false);
+    }
+  }
   return (
     <div class="dropdown">
       <ul
@@ -50,7 +58,8 @@ function OptionSong({ id }) {
         type="button"
         data-bs-toggle="dropdown"
         aria-expanded="false"
-        onClick={() => setModalShow(true)}
+        idsongoption={id}
+        onClick={() => handleDropdownOption()}
       >
         <img
           src="../image/svg/dots-three-outline-vertical.svg"
@@ -58,7 +67,12 @@ function OptionSong({ id }) {
           class="optionSongSvg"
         />
       </ul>
-      <ul class="dropdown-menu dropdown-menu-dark" idsongoption={id}>
+      <ul
+        className={`dropdown-menu dropdown-menu-dark ${
+          showOption == true ? "show" : ""
+        }`}
+        idsongoption={id}
+      >
         {OptionPlayerData.map((item) => (
           <OptionSongItem item={item} key={item.number} />
         ))}
