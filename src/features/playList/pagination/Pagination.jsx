@@ -25,9 +25,9 @@ function Pagination({
     <div className="pagination-modal">
       <ul className="pagination">
         <li className="page-item">
-          <a className="page-link" onClick={handlePrevPage}>
+          <span className="page-link" onClick={handlePrevPage}>
             Previous
-          </a>
+          </span>
         </li>
 
         {currentPage > pagination_size - 1 ? (
