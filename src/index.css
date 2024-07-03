@@ -83,7 +83,7 @@ hr {
 .playList {
   padding: 0;
   list-style-type: none;
-  /* height: 85vh !important; */
+  height: 85vh !important;
 }
 .playList-item {
   display: flex;
