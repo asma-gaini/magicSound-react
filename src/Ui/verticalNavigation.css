@@ -21,3 +21,10 @@
 .subLinkContent {
   margin-left: 20px;
 }
+.sublink_text {
+  color: #5c848e;
+  cursor: pointer;
+}
+.sublink_text:hover {
+  color: #e0e0ec;
+}

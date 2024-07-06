@@ -41,9 +41,9 @@ function VerticalNavigationItem({ item }) {
         >
           {subLink.map((link) => (
             <li>
-              <a href="#" className="nav-link px-0" id={link.mainId}>
-                <span className="d-none d-sm-inline">{link.name}</span>
-              </a>
+              <span className="nav-link px-0" id={link.mainId}>
+                <span className="d-none d-sm-inline sublink_text">{link.name}</span>
+              </span>
             </li>
           ))}
         </ul>
