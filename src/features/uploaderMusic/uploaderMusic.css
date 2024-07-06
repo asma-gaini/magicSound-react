@@ -16,6 +16,9 @@ label {
 }
 .form-control {
   color: var(--bs-body-color);
+  background-color: #e0e0ec;
+}
+.uploaderInputLine {
   background-color: #e0e0ec !important;
 }
 .form-select {

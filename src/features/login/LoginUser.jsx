@@ -9,7 +9,7 @@ function LoginUser() {
     e.preventDefault();
   }
   return (
-    <section class="bg-light p-3 p-md-4 p-xl-5">
+    <section class="p-3 p-md-4 p-xl-5">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-12 col-md-9 col-lg-7 col-xl-6 col-xxl-5">

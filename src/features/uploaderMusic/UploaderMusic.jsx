@@ -20,7 +20,7 @@ function UploaderMusic() {
               </label>
               <input
                 type="text"
-                class="form-control inputUploader"
+                class="form-control inputUploader uploaderInputLine"
                 id="songName"
                 placeholder="Enter Song Name"
                 value={songName}
@@ -33,7 +33,7 @@ function UploaderMusic() {
               </label>
               <input
                 type="text"
-                class="form-control"
+                class="form-control uploaderInputLine"
                 id="artistName"
                 placeholder="Enter Artist Name"
                 value={songArtist}
@@ -46,7 +46,7 @@ function UploaderMusic() {
               </label>
               <input
                 type="text"
-                class="form-control"
+                class="form-control uploaderInputLine"
                 id="musicAddress"
                 placeholder="Link Address"
                 value={songLink}
@@ -57,7 +57,11 @@ function UploaderMusic() {
               <label htmlFor="imageUplode" class="form-label">
                 image:
               </label>
-              <input type="file" class="form-control" id="imageUplode" />
+              <input
+                type="file"
+                class="form-control uploaderInputLine"
+                id="imageUplode"
+              />
             </div>
             <div class="col-md-4">
               <label for="language" class="form-label">
@@ -96,9 +100,12 @@ function UploaderMusic() {
                 value={JSON.stringify(uploader)}
               /> */}
               <button type="submit" class="btn btn-primary">
-                Uploade 
+                Uploade
               </button>
-              <Link className="backBtn" to="/"> back to play list</Link>
+              <Link className="backBtn" to="/">
+                {" "}
+                back to play list
+              </Link>
             </div>
           </form>
         </div>
