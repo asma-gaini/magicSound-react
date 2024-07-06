@@ -74,7 +74,7 @@ function OptionSong({ id }) {
         idsongoption={id}
       >
         {OptionPlayerData.map((item) => (
-          <OptionSongItem item={item} key={item.number} />
+          <OptionSongItem item={item} key={item.number} id={id} />
         ))}
       </ul>
     </div>
