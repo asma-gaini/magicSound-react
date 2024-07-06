@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 
 function ModalSingleSong(props) {
   const songInfo = useSelector((store) => store.app.songModalInfo);
-  
+
   return (
     <Modal
       {...props}
@@ -18,11 +18,6 @@ function ModalSingleSong(props) {
         <Modal.Title id="contained-modal-title-vcenter">
           <h4 className="modal-title">music name</h4>
         </Modal.Title>
-        <button
-          className="btn-close"
-          type="button"
-          data-bs-dismiss="modal"
-        ></button>
       </Modal.Header>
       <Modal.Body>
         <div className="modalContent-body">
@@ -58,7 +53,7 @@ function ModalSingleSong(props) {
         </div>
       </Modal.Body>
       <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
+        {/* <Button onClick={props.onHide}>Close</Button> */}
       </Modal.Footer>
     </Modal>
   );
