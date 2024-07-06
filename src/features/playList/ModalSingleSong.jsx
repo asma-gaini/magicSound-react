@@ -38,6 +38,7 @@ function ModalSingleSong(props) {
             alt=""
             className="modualSong-audio"
             id="single-song"
+            autoplay="autoplay"
           ></audio>
           <div className="text">
             {songInfo?.textMusic.split("/").map((text, i) => (
