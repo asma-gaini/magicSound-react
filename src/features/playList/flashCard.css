@@ -69,18 +69,18 @@
   align-items: center !important;
 }
 .modalword-content {
-  position: relative;
+  /* position: relative;
   display: flex;
   flex-direction: column;
   width: 100%;
   color: var(--bs-modal-color);
-  pointer-events: auto;
+  pointer-events: auto; */
   /* background-color: rgba(198, 178, 250, 0.5); */
-  background-color: rgb(84, 81, 81, 0.5);
-  background-clip: padding-box;
-  border: 3px solid rgb(92, 132, 142, 0.5);
-  border-radius: var(--bs-modal-border-radius);
-  outline: 0;
+  background-color: rgb(84, 81, 81, 0.5) !important;
+  /* background-clip: padding-box; */
+  border: 3px solid rgb(92, 132, 142, 0.5) !important;
+  /* border-radius: var(--bs-modal-border-radius); */
+  /* outline: 0; */
 }
 .modalword-header {
   height: 100px;
@@ -149,6 +149,6 @@ hr {
 .show {
   display: block;
 }
-.hide{
+.hide {
   display: none;
 }

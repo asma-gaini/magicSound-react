@@ -7,7 +7,7 @@ import Modal from "react-bootstrap/Modal";
 import OptionSong from "./OptionSong";
 import { useDispatch } from "react-redux";
 import { openSongModal, setSongModalInfo } from "../../store/slices/appSlice";
-import FlashCard from "./flashCard";
+import FlashCard from "./FlashCard";
 function PlaylistItem({ item }) {
   const {
     title,
@@ -74,7 +74,7 @@ function PlaylistItem({ item }) {
       </div>
 
       <OptionSong id={id} />
-      {/* <FlashCard id={id} /> */}
+
       {/* 
       <Button variant="primary" onClick={handleOpenModal}>
         modal

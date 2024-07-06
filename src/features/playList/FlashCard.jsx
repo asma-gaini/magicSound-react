@@ -1,85 +1,96 @@
 import "./flashCard.css";
+import Table from "react-bootstrap/Table";
+import { useState } from "react";
+import Button from "react-bootstrap/Button";
+import Modal from "react-bootstrap/Modal";
 import { songs_data } from "../../utils/constants";
 
-function FlashCard({ id, setShowFlashCard, showFlashCard }) {
-  function handleCloseFlashCard() {
-    setShowFlashCard(false);
-  }
+function FlashCard(props) {
+  const [word, setWord] = useState("");
+  const [mean, setMean] = useState("");
+  console.log(props.id);
+
   return (
-    <div
-      className={`"modalword fademodalword" ${
-        showFlashCard === true ? "show" : "false"
-      }`}
-      id="modalword"
-    >
-      <div class="modalword-dialog">
-        <div class="modalword-content">
-          <div class="modalword-header">
-            <div class="modalword-title fs-5">Difficult Words</div>
-            <button
-              class="btn-close"
-              type="button"
-              onclick={() => handleCloseFlashCard()}
-            ></button>
-          </div>
-          <div class="modalword-body">
-            <h5 class="p-2">Previous words</h5>
-            <table class="table table-success table-striped-columns">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Word</th>
-                  <th scope="col">Mean</th>
-                </tr>
-              </thead>
-              <tbody>
+    <>
+      <Modal
+        {...props}
+        size="md"
+        aria-labelledby="flashCardWord"
+        centered
+        className="modalword-content"
+      >
+        <Modal.Header closeButton>
+          <Modal.Title
+            className="fs-5"
+            id="flashCardWord"
+            onClick={props.onHide}
+          >
+            Difficult Words
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h5 className="p-2">Previous words</h5>
+          <Table
+            bordered
+            hover
+            className="table table-success table-striped-columns"
+          >
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Word</th>
+                <th scope="col">Mean</th>
+              </tr>
+            </thead>
+            <tbody>
+              {songs_data[props.id - 1].difficultWords.map((word) => (
                 <tr>
                   <th scope="row">1</th>
-                  <td>song1 w1</td>
-                  <td>آهنگ 1 ، کلمه1</td>
+                  <td>{word.word}</td>
+                  <td>{word.mean}</td>
                 </tr>
-                <tr>
-                  <th scope="row">2</th>
-                  <td>song1 w2</td>
-                  <td>آهنگ 1 ، کلمه2</td>
-                </tr>
-              </tbody>
-            </table>
-            <hr />
-            <h5 class="headerAddWord">add difficult word</h5>
-            <div class="wordForm">
-              <div class="formWordLine">
-                <label for="word" class="form-label">
-                  word:
-                </label>
-                <input
-                  type="text"
-                  class="form-control inputUploader"
-                  id="word"
-                  placeholder="Enter difficult word"
-                />
-              </div>
-              <div class="formWordLine">
-                <label for="mean" class="form-label">
-                  mean:
-                </label>
-                <input
-                  type="text"
-                  class="form-control inputUploader"
-                  id="mean"
-                  placeholder="Enter mean of word"
-                />
-              </div>
-              <div class="sendWord">
-                <button type="submit" class="btn btn-primary btnSendWord">
-                  Send word
-                </button>
-              </div>
+              ))}
+            </tbody>
+          </Table>
+          <hr />
+          <h5 className="headerAddWord">add difficult word</h5>
+          <div className="wordForm">
+            <div className="formWordLine">
+              <label for="word" className="form-label">
+                word:
+              </label>
+              <input
+                type="text"
+                className="form-control inputUploader"
+                id="word"
+                value={word}
+                onChange={(e) => setWord(e.target.value)}
+                placeholder="Enter difficult word"
+              />
+            </div>
+            <div className="formWordLine">
+              <label for="mean" class="form-label">
+                mean:
+              </label>
+              <input
+                type="text"
+                class="form-control inputUploader"
+                id="mean"
+                value={mean}
+                onChange={(e) => setMean(e.target.value)}
+                placeholder="Enter mean of word"
+              />
+            </div>
+            <div class="sendWord">
+              <button type="submit" class="btn btn-primary btnSendWord">
+                Send word
+              </button>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
+        </Modal.Body>
+        <Modal.Footer></Modal.Footer>
+      </Modal>
+    </>
   );
 }
 
