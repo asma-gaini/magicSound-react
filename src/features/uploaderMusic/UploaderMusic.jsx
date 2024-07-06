@@ -89,16 +89,16 @@ function UploaderMusic() {
                 </label>
               </div>
             </div>
-            <div class="col-12">
+            <div class="col-12 btnSection">
               {/* <input
                 type="hidden"
                 name="uploader"
                 value={JSON.stringify(uploader)}
               /> */}
               <button type="submit" class="btn btn-primary">
-                Uploade music
+                Uploade 
               </button>
-              <Link to="/"> back to play list</Link>
+              <Link className="backBtn" to="/"> back to play list</Link>
             </div>
           </form>
         </div>
