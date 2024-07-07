@@ -1,12 +1,24 @@
 import "./ModalSingleSong.css";
+import { openSongModal, setSongModalInfo } from "../../store/slices/appSlice";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 function ModalSingleSong(props) {
   const songInfo = useSelector((store) => store.app.songModalInfo);
-
+  const dispatch = useDispatch();
+  let songItems = props.songItemList;
+  let currentSongId = parseInt(songInfo?.id);
+  let nextSong = currentSongId + 1;
+  function autoNextSong() {
+    for (let i = 0; i < songItems.length; i++) {
+      if (parseInt(songItems[i].id) == nextSong) {
+        dispatch(setSongModalInfo(songItems[i]));
+      }
+    }
+  }
   return (
     <Modal
       {...props}
@@ -39,6 +51,7 @@ function ModalSingleSong(props) {
             className="modualSong-audio"
             id="single-song"
             autoplay="autoplay"
+            onEnded={autoNextSong}
           ></audio>
           <div className="text">
             {songInfo?.textMusic.split("/").map((text, i) => (
