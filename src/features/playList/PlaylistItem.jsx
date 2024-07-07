@@ -44,7 +44,6 @@ function PlaylistItem({ item }) {
         id="1"
         variant="primary"
         onClick={handleOpenModal}
-        // onclick={togglePlay(1)}
         data-bs-toggle="modal"
         data-bs-target="#myModal"
         setmusichasbeencalled="false"
@@ -74,11 +73,6 @@ function PlaylistItem({ item }) {
       </div>
 
       <OptionSong id={id} />
-
-      {/* 
-      <Button variant="primary" onClick={handleOpenModal}>
-        modal
-      </Button> */}
     </li>
   );
 }
