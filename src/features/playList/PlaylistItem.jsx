@@ -23,9 +23,28 @@ function PlaylistItem({ item }) {
     "../image/svg/heart-empty.svg"
   );
   const isShow = useSelector((store) => store.app.showModalSong);
+  const [isPlaying, setIsPlaying] = useState(false);
+
+  function handleTogglePlayAndPause() {
+    let audio = document.querySelector("#single-song");
+    console.log(audio);
+    if (isPlaying) {
+      console.log("playing");
+      audio.pause();
+      setIsPlaying(false);
+    } else {
+      audio.play();
+      console.log("paused");
+      setIsPlaying(true);
+    }
+  }
   function handleOpenModalSong() {
     dispatch(setSongModalInfo(item));
-    dispatch(openModalSong());
+    if (isPlaying == false) {
+      dispatch(openModalSong());
+    }
+    console.log(isPlaying);
+    handleTogglePlayAndPause();
   }
 
   function handleFavoritSong() {
