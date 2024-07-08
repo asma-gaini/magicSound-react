@@ -29,12 +29,12 @@ function PlaylistItem({ item }) {
     let audio = document.querySelector("#single-song");
     console.log(audio);
     if (isPlaying) {
-      console.log("playing");
+      console.log("isplying");
       audio.pause();
       setIsPlaying(false);
     } else {
+      console.log("not is playing");
       audio.play();
-      console.log("paused");
       setIsPlaying(true);
     }
   }
@@ -43,8 +43,9 @@ function PlaylistItem({ item }) {
     if (isPlaying == false) {
       dispatch(openModalSong());
     }
-    console.log(isPlaying);
+    console.log("before handle " + isPlaying);
     handleTogglePlayAndPause();
+    console.log("after handle " + isPlaying);
   }
 
   function handleFavoritSong() {
@@ -54,12 +55,14 @@ function PlaylistItem({ item }) {
       setFavoritSong("../image/svg/heart-empty.svg");
     }
   }
-  console.log("showModalSong" + isShow);
+
   return (
     <li className="playList-item">
       <div
-        className="playList-item-div-image "
-        id="1"
+        className={`playList-item-div-image  ${
+          isPlaying == true ? "play active" : ""
+        }`}
+        id={id}
         variant="primary"
         onClick={handleOpenModalSong}
         setmusichasbeencalled="false"

@@ -8,7 +8,7 @@ import { songs_data } from "../../utils/constants";
 function FlashCard(props) {
   const [word, setWord] = useState("");
   const [mean, setMean] = useState("");
-  console.log(props.id);
+  // console.log(props.id);
 
   return (
     <>
