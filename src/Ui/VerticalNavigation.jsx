@@ -18,10 +18,12 @@ const vertical_navigation = [
       {
         mainId: "3",
         name: "item 1",
+        target: "#",
       },
       {
         mainId: "4",
         name: "item 2",
+        target: "#",
       },
     ],
   },
@@ -35,12 +37,20 @@ const vertical_navigation = [
       {
         mainId: "6",
         name: "item 1",
+        target: "#",
       },
       {
         mainId: "7",
         name: "item 2",
+        target: "#",
       },
     ],
+  },
+  {
+    mainId: "8",
+    name: "upload music",
+    svg: "../image/svg/upload.svg",
+    target: "/uploadMusic",
   },
 ];
 
