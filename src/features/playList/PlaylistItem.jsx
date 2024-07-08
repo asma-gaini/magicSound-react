@@ -28,7 +28,7 @@ function PlaylistItem({ item }) {
 
   const handleOpenModal = () => {
     dispatch(setSongModalInfo(item));
-    dispatch(openSongModal());
+    // dispatch(openSongModal());
   };
   function handleFavoritSong() {
     if (favoritSong == "../image/svg/heart-empty.svg") {

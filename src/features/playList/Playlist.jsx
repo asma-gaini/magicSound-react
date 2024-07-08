@@ -6,6 +6,7 @@ import { songs_data } from "../../utils/constants";
 import usePagination from "../../hooks/usePagination.js";
 import "./pagination/pagination.css";
 import Pagination from "./pagination/Pagination.jsx";
+import CustomModalSong from "./CustomModalSong.jsx";
 
 function Playlist() {
   const dispatch = useDispatch();
@@ -24,6 +25,7 @@ function Playlist() {
   return (
     <>
       <div id="playerList">
+        <CustomModalSong songItemList={songItemList} />
         <div className="music-app">
           <div className="content">
             <ul className="playList">
@@ -43,11 +45,11 @@ function Playlist() {
           setPage={setPage}
         />
       </div>
-      <ModalSingleSong
+      {/* <ModalSingleSong
         show={modalOpen}
         onHide={() => dispatch(closeSongModal())}
         songItemList={songItemList}
-      />
+      /> */}
     </>
   );
 }
