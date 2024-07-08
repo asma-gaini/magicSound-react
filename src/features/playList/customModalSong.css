@@ -1,8 +1,8 @@
 .showModalsong {
-  display: block;
+  display: block !important;
 }
 .hideModalSong {
-  display: none;
+  display: none !important;
 }
 
 .customModal-header {

@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   songModalInfo: undefined,
-  songModalOpen: false,
+  showModalSong: false,
 };
 
 export const appSlice = createSlice({
@@ -12,16 +12,19 @@ export const appSlice = createSlice({
     setSongModalInfo: (state, actions) => {
       state.songModalInfo = actions.payload;
     },
-    openSongModal: (state) => {
-      state.songModalOpen = true;
+    openModalSong: (state) => {
+      state.showModalSong = true;
     },
-    closeSongModal: (state) => {
-      state.songModalOpen = false;
+    closeModalSong: (state) => {
+      state.showModalSong = false;
     },
   },
 });
 
-export const { setSongModalInfo, openSongModal, closeSongModal } =
-  appSlice.actions;
+export const {
+  setSongModalInfo,
+  openModalSong,
+  closeModalSong,
+} = appSlice.actions;
 
 export default appSlice.reducer;

@@ -1,14 +1,19 @@
 import "./customModalSong.css";
-import { openSongModal, setSongModalInfo } from "../../store/slices/appSlice";
+import {
+  openModalSong,
+  setSongModalInfo,
+  closeModalSong,
+} from "../../store/slices/appSlice";
 
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+
 
 function CustomModalSong({ songItemList }) {
   const songInfo = useSelector((store) => store.app.songModalInfo);
   const dispatch = useDispatch();
+  const isShow = useSelector((store) => store.app.showModalSong);
+
   let songItems = songItemList;
   let currentSongId = parseInt(songInfo?.id);
   let nextSong = currentSongId + 1;
@@ -20,14 +25,18 @@ function CustomModalSong({ songItemList }) {
     }
   }
   return (
-    <div class="customModal-dialog customModal-dialog-scrollable">
+    <div
+      className={`customModal-dialog customModal-dialog-scrollable  ${
+        isShow == true ? "showModalsong" : "hideModalSong"
+      }`}
+    >
       <div class="customModal-content">
         <div class="customModal-header">
           <h4 className="customModal-title">music name</h4>
           <button
             class="btn-close"
             type="button"
-            data-bs-dismiss="modal"
+            onClick={() => dispatch(closeModalSong())}
           ></button>
         </div>
         <div class="customModal-body">
@@ -72,7 +81,7 @@ function CustomModalSong({ songItemList }) {
           <button
             type="button"
             class="btn btn-danger btnClose singleSong"
-            data-bs-dismiss="modal"
+            onClick={() => dispatch(closeModalSong())}
           >
             Close
           </button>

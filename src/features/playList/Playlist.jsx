@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { closeSongModal } from "../../store/slices/appSlice.js";
+import { closeModalSong } from "../../store/slices/appSlice.js";
 import PlaylistItem from "./PlaylistItem.jsx";
 import ModalSingleSong from "./ModalSingleSong";
 import { songs_data } from "../../utils/constants";

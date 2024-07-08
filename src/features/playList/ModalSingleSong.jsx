@@ -1,5 +1,5 @@
 import "./ModalSingleSong.css";
-import { openSongModal, setSongModalInfo } from "../../store/slices/appSlice";
+import { openModalSong, setSongModalInfo } from "../../store/slices/appSlice";
 
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";

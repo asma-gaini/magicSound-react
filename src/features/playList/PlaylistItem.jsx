@@ -1,12 +1,9 @@
 import { useState } from "react";
 import "./ModalSingleSong.css";
 
-import ModalSingleSong from "./ModalSingleSong";
-import Button from "react-bootstrap/Button";
-import Modal from "react-bootstrap/Modal";
 import OptionSong from "./OptionSong";
-import { useDispatch } from "react-redux";
-import { openSongModal, setSongModalInfo } from "../../store/slices/appSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { openModalSong, setSongModalInfo } from "../../store/slices/appSlice";
 import FlashCard from "./FlashCard";
 function PlaylistItem({ item }) {
   const {
@@ -25,11 +22,12 @@ function PlaylistItem({ item }) {
   const [favoritSong, setFavoritSong] = useState(
     "../image/svg/heart-empty.svg"
   );
-
-  const handleOpenModal = () => {
+  const isShow = useSelector((store) => store.app.showModalSong);
+  function handleOpenModalSong() {
     dispatch(setSongModalInfo(item));
-    // dispatch(openSongModal());
-  };
+    dispatch(openModalSong());
+  }
+
   function handleFavoritSong() {
     if (favoritSong == "../image/svg/heart-empty.svg") {
       setFavoritSong("../image/svg/heart-full.svg");
@@ -37,15 +35,14 @@ function PlaylistItem({ item }) {
       setFavoritSong("../image/svg/heart-empty.svg");
     }
   }
+  console.log("showModalSong" + isShow);
   return (
     <li className="playList-item">
       <div
-        className="playList-item-div-image"
+        className="playList-item-div-image "
         id="1"
         variant="primary"
-        onClick={handleOpenModal}
-        data-bs-toggle="modal"
-        data-bs-target="#myModal"
+        onClick={handleOpenModalSong}
         setmusichasbeencalled="false"
       >
         <img src={image} alt={title} className="playList-item-image" />
