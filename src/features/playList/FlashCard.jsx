@@ -69,20 +69,20 @@ function FlashCard(props) {
               />
             </div>
             <div className="formWordLine">
-              <label for="mean" class="form-label">
+              <label for="mean" className="form-label">
                 mean:
               </label>
               <input
                 type="text"
-                class="form-control inputUploader"
+                className="form-control inputUploader"
                 id="mean"
                 value={mean}
                 onChange={(e) => setMean(e.target.value)}
                 placeholder="Enter mean of word"
               />
             </div>
-            <div class="sendWord">
-              <button type="submit" class="btn btn-primary btnSendWord">
+            <div className="sendWord">
+              <button type="submit" className="btn btn-primary btnSendWord">
                 Send word
               </button>
             </div>

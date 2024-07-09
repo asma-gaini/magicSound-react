@@ -32,17 +32,17 @@ function Pagination({
 
         {currentPage > pagination_size - 1 ? (
           <>
-            <li class="page-item PaginationFirst" id="1">
+            <li className="page-item PaginationFirst" id="1">
               <span
                 onClick={() => {
                   setPage(1);
                 }}
-                class="page-link PaginationFirst page-link-num"
+                className="page-link PaginationFirst page-link-num"
               >
                 1
               </span>
             </li>
-            <li class="page-item PaginationFirst">...</li>
+            <li className="page-item PaginationFirst">...</li>
             {pagecountLong.map((page) => (
               <li className="page-item" id={page}>
                 <span

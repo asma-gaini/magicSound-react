@@ -10,11 +10,11 @@ function OptionSongItem({ item, id }) {
   const [modalShow, setModalShow] = useState(false);
   return (
     <li>
-      <div class="linkOptionDiv">
-        <img src={optionSvgSrc} alt={optionName} class="optionSongSvg" />
+      <div className="linkOptionDiv">
+        <img src={optionSvgSrc} alt={optionName} className="optionSongSvg" />
         {optionName == "Add difficult words" ? (
           <a
-            class="dropdown-item"
+          className="dropdown-item"
             href={optionTarget}
             number={number}
             onClick={() => setModalShow(true)}
@@ -34,7 +34,7 @@ function OptionSongItem({ item, id }) {
             {optionName}
           </a>
         ) : (
-          <a class="dropdown-item" href={optionTarget} number={number}>
+          <a className="dropdown-item" href={optionTarget} number={number}>
             {optionName}
           </a>
         )}

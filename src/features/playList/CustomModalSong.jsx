@@ -30,16 +30,16 @@ function CustomModalSong({ songItemList }) {
         isShow == true ? "showModalsong" : "hideModalSong"
       }`}
     >
-      <div class="customModal-content">
-        <div class="customModal-header">
+      <div className="customModal-content">
+        <div className="customModal-header">
           <h4 className="customModal-title">music name</h4>
           <button
-            class="btn-close"
+            className="btn-close"
             type="button"
             onClick={() => dispatch(closeModalSong())}
           ></button>
         </div>
-        <div class="customModal-body">
+        <div className="customModal-body">
           <div className="customModalContent-body">
             <div className="customModalSong-Image">
               <img src={songInfo?.image} alt="" id="single-song-image" />
@@ -77,10 +77,10 @@ function CustomModalSong({ songItemList }) {
             </div>
           </div>
         </div>
-        <div class="customModal-footer">
+        <div className="customModal-footer">
           <button
             type="button"
-            class="btn btn-danger btnClose singleSong"
+            className="btn btn-danger btnClose singleSong"
             onClick={() => dispatch(closeModalSong())}
           >
             Close

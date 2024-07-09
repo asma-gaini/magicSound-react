@@ -52,9 +52,9 @@ function OptionSong({ id }) {
     }
   }
   return (
-    <div class="dropdown">
+    <div className="dropdown">
       <ul
-        class="btn btn-secondary displayOption"
+        className="btn btn-secondary displayOption"
         type="button"
         data-bs-toggle="dropdown"
         aria-expanded="false"
@@ -64,7 +64,7 @@ function OptionSong({ id }) {
         <img
           src="../image/svg/dots-three-outline-vertical.svg"
           alt="3-vertical-dots"
-          class="optionSongSvg"
+          className="optionSongSvg"
         />
       </ul>
       <ul
