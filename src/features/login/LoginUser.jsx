@@ -1,6 +1,35 @@
 import { useState } from "react";
 import "./Login.css";
 
+//  **************************************************** DATA _ LOGIN INFORMATION  ****************************************************
+const otherAppInfo = [
+  {
+    otherApp_name: "google",
+    otherApp_outlineColor: "btn-outline-danger",
+    otherApp_target: "#!",
+    otherApp_svgSrc: "../image/svg/google.svg",
+  },
+  {
+    otherApp_name: "facebook",
+    otherApp_outlineColor: "btn-outline-primary",
+    otherApp_target: "#!",
+    otherApp_svgSrc: "../image/svg/facebook.svg",
+  },
+  {
+    otherApp_name: "twitter",
+    otherApp_outlineColor: "btn-outline-info",
+    otherApp_target: "#!",
+    otherApp_svgSrc: "../image/svg/twitter.svg",
+  },
+  {
+    otherApp_name: "apple",
+    otherApp_outlineColor: "btn-outline-dark",
+    otherApp_target: "#!",
+    otherApp_svgSrc: "../image/svg/apple.svg",
+  },
+];
+
+
 function LoginUser() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -101,10 +130,16 @@ function LoginUser() {
                   <div className="col-12">
                     <hr className="mt-5 mb-4 border-secondary-subtle" />
                     <div className="d-flex gap-2 gap-md-4 flex-column flex-md-row justify-content-md-end">
-                      <a href="#!" className="link-secondary text-decoration-none">
+                      <a
+                        href="#!"
+                        className="link-secondary text-decoration-none"
+                      >
                         Create new account
                       </a>
-                      <a href="#!" className="link-secondary text-decoration-none">
+                      <a
+                        href="#!"
+                        className="link-secondary text-decoration-none"
+                      >
                         Forgot password
                       </a>
                     </div>
@@ -114,24 +149,17 @@ function LoginUser() {
                   <div className="col-12">
                     <p className="mt-5 mb-5">Or continue with : </p>
                     <div className="d-flex gap-2 gap-sm-3 justify-content-center">
-                      <a
-                        href="#!"
-                        className="btn btn-lg btn-outline-danger p-3 lh-1"
-                      >
-                        <img src="../image/svg/google.svg" alt="google" />
-                      </a>
-                      <a
-                        href="#!"
-                        className="btn btn-lg btn-outline-primary p-3 lh-1"
-                      >
-                        <img src="../image/svg/facebook.svg" alt="facebook" />
-                      </a>
-                      <a href="#!" className="btn btn-lg btn-outline-info p-3 lh-1">
-                        <img src="../image/svg/twitter.svg" alt="twitter" />
-                      </a>
-                      <a href="#!" className="btn btn-lg btn-outline-dark p-3 lh-1">
-                        <img src="../image/svg/apple.svg" alt="apple" />
-                      </a>
+                      {otherAppInfo.map((item) => (
+                        <a
+                          href={item.otherApp_target}
+                          className={`btn btn-lg p-3 lh-1 ${item.otherApp_outlineColor}`}
+                        >
+                          <img
+                            src={item.otherApp_svgSrc}
+                            alt={item.otherApp_name}
+                          />
+                        </a>
+                      ))}
                     </div>
                   </div>
                 </div>
