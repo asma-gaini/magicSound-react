@@ -5,7 +5,7 @@ import OptionSong from "./OptionSong";
 import { useDispatch, useSelector } from "react-redux";
 import { openModalSong, setSongModalInfo } from "../../store/slices/appSlice";
 import FlashCard from "./FlashCard";
-function PlaylistItem({ item }) {
+function PlaylistItem({ item, songItemList }) {
   const {
     title,
     artist,
@@ -38,7 +38,20 @@ function PlaylistItem({ item }) {
       setIsPlaying(true);
     }
   }
+  function handleSvgHover() {
+    // let AddhoverSvg = document.querySelectorAll(".addPlayingHover");
+    // let removehoverSvg = document.querySelectorAll(".removePauseHover");
+    let activeClass = document.querySelectorAll(".active");
+    let playClass = document.querySelectorAll(".play");
+    let puaseClass = document.querySelectorAll(".pause");
+    // AddhoverSvg.forEach((el) => el.classList.remove("addPlayingHover"));
+    // removehoverSvg.forEach((el) => el.classList.remove("removePauseHover"));
+    activeClass.forEach((el) => el.classList.remove("active"));
+    playClass.forEach((el) => el.classList.remove("play"));
+    puaseClass.forEach((el) => el.classList.remove("pause"));
+  }
   function handleOpenModalSong() {
+    handleSvgHover();
     dispatch(setSongModalInfo(item));
     if (isPlaying == false) {
       dispatch(openModalSong());
@@ -60,7 +73,7 @@ function PlaylistItem({ item }) {
     <li className="playList-item">
       <div
         className={`playList-item-div-image  ${
-          isPlaying == true ? "play active" : ""
+          isPlaying == true ? "play active removePauseHover" : "addPlayingHover"
         }`}
         id={id}
         variant="primary"

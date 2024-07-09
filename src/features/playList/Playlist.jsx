@@ -30,7 +30,11 @@ function Playlist() {
           <div className="content">
             <ul className="playList">
               {songItemList.map((item) => (
-                <PlaylistItem item={item} key={item.id} />
+                <PlaylistItem
+                  item={item}
+                  key={item.id}
+                  songItemList={songItemList}
+                />
               ))}
             </ul>
           </div>
