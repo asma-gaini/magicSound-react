@@ -6,7 +6,7 @@ const vertical_navigation = [
     mainId: "1",
     name: "Home",
     svg: "../image/svg/home-svgrepo-com.svg",
-    target: "#",
+    target: "/",
   },
   {
     mainId: "2",
