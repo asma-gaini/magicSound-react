@@ -8,22 +8,39 @@ import {
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 
-
 function CustomModalSong({ songItemList }) {
   const songInfo = useSelector((store) => store.app.songModalInfo);
   const dispatch = useDispatch();
   const isShow = useSelector((store) => store.app.showModalSong);
 
-  let songItems = songItemList;
+  const songItems = songItemList;
   let currentSongId = parseInt(songInfo?.id);
   let nextSong = currentSongId + 1;
   function autoNextSong() {
     for (let i = 0; i < songItems.length; i++) {
       if (parseInt(songItems[i].id) == nextSong) {
+        document.dispatchEvent(
+          new CustomEvent("song_event", {
+            detail: { type: "next_song", id: songItems[i].id },
+          })
+        );
         dispatch(setSongModalInfo(songItems[i]));
       }
     }
   }
+
+  //1))omadim ye custom event listiner neveshtin in event ye esm dare ye detail k etelaat ro bash mifrestim
+  //k alan ma bash ye type mifrestim ye id
+  //2))bara tabe next dar bala ham hamintor gofim ag id barabar bood ham event ru ba ye type dg bfrest
+  //ham etelatate ahange badi ru as tu slice set kone
+  //3))bad mirim jayi k mikhaym estefade konim tu playlist ono handle mikonim
+  const handlePause = () => {
+    document.dispatchEvent(
+      new CustomEvent("song_event", {
+        detail: { type: "pause", id: songInfo.id },
+      })
+    );
+  };
   return (
     <div
       className={`customModal-dialog customModal-dialog-scrollable  ${
@@ -63,6 +80,7 @@ function CustomModalSong({ songItemList }) {
               id="single-song"
               autoplay="autoplay"
               onEnded={autoNextSong}
+              onPause={handlePause}
             ></audio>
             <div className="text">
               {songInfo?.textMusic.split("/").map((text, i) => (

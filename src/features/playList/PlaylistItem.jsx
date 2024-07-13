@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "./ModalSingleSong.css";
+import { FaPlay, FaPause } from "react-icons/fa";
 
 import OptionSong from "./OptionSong";
 import { useDispatch, useSelector } from "react-redux";
 import { openModalSong, setSongModalInfo } from "../../store/slices/appSlice";
 import FlashCard from "./FlashCard";
+
 function PlaylistItem({ item, songItemList }) {
   const {
     title,
@@ -18,47 +20,82 @@ function PlaylistItem({ item, songItemList }) {
   } = item;
 
   const dispatch = useDispatch();
-
+  const songModalId = useSelector((store) => store.app.songModalInfo?.id);
   const [favoritSong, setFavoritSong] = useState(
     "../image/svg/heart-empty.svg"
   );
   const isShow = useSelector((store) => store.app.showModalSong);
   const [isPlaying, setIsPlaying] = useState(false);
 
+  // let playEvent = useRef(false);
+  // useEffect(
+  //   function () {
+  //     let audio = document.querySelector("#single-song");
+
+  //     playEvent.current=
+  //   },
+  //   [isPlaying]
+  // );
+
+  useEffect(() => {
+    document.addEventListener("song_event", (e) => {
+      switch (e.detail?.type) {
+        case "pause":
+          if (item.id == e.detail) {
+            setIsPlaying(false);
+          }
+          break;
+
+        case "next_song":
+          setIsPlaying(e.detail?.id === item.id);
+          break;
+      }
+      console.log("event id" + e.detail);
+      console.log("item id", item.id);
+    });
+  }, []);
+  useEffect(() => {
+    if (item.id !== songModalId) {
+      setIsPlaying(false);
+    }
+  }, [songModalId]);
+
   function handleTogglePlayAndPause() {
     let audio = document.querySelector("#single-song");
     console.log(audio);
     if (isPlaying) {
-      console.log("isplying");
+      // console.log("isplying");
       audio.pause();
       setIsPlaying(false);
     } else {
-      console.log("not is playing");
+      // console.log("not is playing");
       audio.play();
       setIsPlaying(true);
     }
   }
-  function handleSvgHover() {
-    // let AddhoverSvg = document.querySelectorAll(".addPlayingHover");
-    // let removehoverSvg = document.querySelectorAll(".removePauseHover");
-    let activeClass = document.querySelectorAll(".active");
-    let playClass = document.querySelectorAll(".play");
-    let puaseClass = document.querySelectorAll(".pause");
-    // AddhoverSvg.forEach((el) => el.classList.remove("addPlayingHover"));
-    // removehoverSvg.forEach((el) => el.classList.remove("removePauseHover"));
-    activeClass.forEach((el) => el.classList.remove("active"));
-    playClass.forEach((el) => el.classList.remove("play"));
-    puaseClass.forEach((el) => el.classList.remove("pause"));
-  }
+  // function handleSvgHover() {
+  //   // let AddhoverSvg = document.querySelectorAll(".addPlayingHover");
+  //   // let removehoverSvg = document.querySelectorAll(".removePauseHover");
+  //   let activeClass = document.querySelectorAll(".active");
+  //   let playClass = document.querySelectorAll(".play");
+  //   let puaseClass = document.querySelectorAll(".pause");
+  //   // AddhoverSvg.forEach((el) => el.classList.remove("addPlayingHover"));
+  //   // removehoverSvg.forEach((el) => el.classList.remove("removePauseHover"));
+  //   activeClass.forEach((el) => el.classList.remove("active"));
+  //   playClass.forEach((el) => el.classList.remove("play"));
+  //   puaseClass.forEach((el) => el.classList.remove("pause"));
+  // }
   function handleOpenModalSong() {
-    handleSvgHover();
+    // handleSvgHover();
     dispatch(setSongModalInfo(item));
+    console.log("modal", { isPlaying });
     if (isPlaying == false) {
+      console.log("modal should open");
       dispatch(openModalSong());
     }
-    console.log("before handle " + isPlaying);
+    // console.log("before handle " + isPlaying);
     handleTogglePlayAndPause();
-    console.log("after handle " + isPlaying);
+    // console.log("after handle " + isPlaying);
   }
 
   function handleFavoritSong() {
@@ -72,17 +109,28 @@ function PlaylistItem({ item, songItemList }) {
   return (
     <li className="playList-item">
       <div
-        className={`playList-item-div-image  ${
-          isPlaying == true ? "play active removePauseHover" : "addPlayingHover"
-        }`}
+        className="playList-item-div-image"
         id={id}
         variant="primary"
         onClick={handleOpenModalSong}
         setmusichasbeencalled="false"
       >
         <img src={image} alt={title} className="playList-item-image" />
-        <img src="../image/svg/play.svg" className="svg" id="playSvg" />
-        <img src="../image/svg/pause.svg" className="svg" id="pauseSvg" />
+        {/* estefade az react icon be jaye svg va handle kardan an */}
+        {!isPlaying && (
+          <FaPlay
+            color="#ff0000"
+            className={`song-action action-play ${
+              item.id === songModalId ? "show" : ""
+            }`}
+          />
+        )}
+        {isPlaying && (
+          <FaPause
+            color="#00ff00"
+            className={`song-action action-pause ${isPlaying ? "show" : ""}`}
+          />
+        )}
       </div>
       <div className="playList-item-main">
         <div className="playList-item-info">

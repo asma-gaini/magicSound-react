@@ -174,16 +174,15 @@ hr {
       opacity: 1;
     } */
 
-.svg {
+.song-action {
   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-95%, -50%);
   opacity: 0;
-  fill: #fff !important;
-  width: 24px;
-  height: auto;
-  margin: 1px 0 0 1px;
-  transition: 0.5s ease;
-  left: 10px;
-  top: 10px;
+}
+.song-action.show {
+  opacity: 1;
 }
 
 .playList-item-main {
@@ -202,14 +201,10 @@ hr {
   width: 30px;
 }
 
-.playList-item-div-image.active .svg {
-  fill: #28b140 !important;
-}
-
-.playList-item-div-image:hover #playSvg {
+.playList-item-div-image:hover .song-action {
   opacity: 1;
 }
-.removePlayHover:hover #playSvg {
+.removePlayHover:hover .song-action {
   opacity: 0 !important;
 }
 .addPauseHover:hover .svg:last-child {
