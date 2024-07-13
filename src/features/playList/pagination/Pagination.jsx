@@ -30,7 +30,7 @@ function Pagination({
           </span>
         </li>
 
-        {currentPage > pagination_size - 1 ? (
+        {currentPage > pagination_size - 1 && page_lenght > pagination_size ? (
           <>
             <li className="page-item PaginationFirst" id="1">
               <span
@@ -77,7 +77,7 @@ function Pagination({
           </>
         )}
 
-        {page_lenght > pagination_size && currentPage <= 10 && (
+        {page_lenght > pagination_size && currentPage <= page_lenght - 2 && (
           <>
             <li className="page-item PaginationLenght">...</li>
             <li className="page-item PaginationLenght" id={page_lenght}>
