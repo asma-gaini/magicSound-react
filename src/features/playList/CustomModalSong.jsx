@@ -40,6 +40,7 @@ function CustomModalSong({ songItemList }) {
         detail: { type: "pause", id: songInfo.id },
       })
     );
+    console.log("asma");
   };
   return (
     <div

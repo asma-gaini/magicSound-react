@@ -27,21 +27,16 @@ function PlaylistItem({ item, songItemList }) {
   const isShow = useSelector((store) => store.app.showModalSong);
   const [isPlaying, setIsPlaying] = useState(false);
 
-  // let playEvent = useRef(false);
-  // useEffect(
-  //   function () {
-  //     let audio = document.querySelector("#single-song");
-
-  //     playEvent.current=
-  //   },
-  //   [isPlaying]
-  // );
-
   useEffect(() => {
+    // console.log("new" + item.id);
     document.addEventListener("song_event", (e) => {
+      // console.log("event id" + e.detail);
+      // console.log("new11" + item.id);
+
       switch (e.detail?.type) {
         case "pause":
-          if (item.id == e.detail) {
+          // console.log("asmapas");
+          if (item.id == e.detail.id) {
             setIsPlaying(false);
           }
           break;
@@ -50,8 +45,6 @@ function PlaylistItem({ item, songItemList }) {
           setIsPlaying(e.detail?.id === item.id);
           break;
       }
-      console.log("event id" + e.detail);
-      console.log("item id", item.id);
     });
   }, []);
   useEffect(() => {
@@ -62,40 +55,25 @@ function PlaylistItem({ item, songItemList }) {
 
   function handleTogglePlayAndPause() {
     let audio = document.querySelector("#single-song");
-    console.log(audio);
     if (isPlaying) {
-      // console.log("isplying");
+      console.log("isplying");
       audio.pause();
       setIsPlaying(false);
     } else {
-      // console.log("not is playing");
+      console.log("not is playing");
       audio.play();
       setIsPlaying(true);
     }
   }
-  // function handleSvgHover() {
-  //   // let AddhoverSvg = document.querySelectorAll(".addPlayingHover");
-  //   // let removehoverSvg = document.querySelectorAll(".removePauseHover");
-  //   let activeClass = document.querySelectorAll(".active");
-  //   let playClass = document.querySelectorAll(".play");
-  //   let puaseClass = document.querySelectorAll(".pause");
-  //   // AddhoverSvg.forEach((el) => el.classList.remove("addPlayingHover"));
-  //   // removehoverSvg.forEach((el) => el.classList.remove("removePauseHover"));
-  //   activeClass.forEach((el) => el.classList.remove("active"));
-  //   playClass.forEach((el) => el.classList.remove("play"));
-  //   puaseClass.forEach((el) => el.classList.remove("pause"));
-  // }
+
   function handleOpenModalSong() {
-    // handleSvgHover();
     dispatch(setSongModalInfo(item));
     console.log("modal", { isPlaying });
     if (isPlaying == false) {
       console.log("modal should open");
       dispatch(openModalSong());
     }
-    // console.log("before handle " + isPlaying);
     handleTogglePlayAndPause();
-    // console.log("after handle " + isPlaying);
   }
 
   function handleFavoritSong() {
