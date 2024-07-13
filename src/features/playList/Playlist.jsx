@@ -1,16 +1,10 @@
-import { useDispatch, useSelector } from "react-redux";
-import { closeModalSong } from "../../store/slices/appSlice.js";
 import PlaylistItem from "./PlaylistItem.jsx";
-import ModalSingleSong from "./ModalSingleSong";
-import { songs_data } from "../../utils/constants";
 import usePagination from "../../hooks/usePagination.js";
 import "./pagination/pagination.css";
 import Pagination from "./pagination/Pagination.jsx";
 import CustomModalSong from "./CustomModalSong.jsx";
 
 function Playlist() {
-  const dispatch = useDispatch();
-  const modalOpen = useSelector((store) => store.app.songModalOpen);
   const {
     setPage,
     setCurrentPage,

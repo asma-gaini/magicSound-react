@@ -1,9 +1,5 @@
 import "./customModalSong.css";
-import {
-  openModalSong,
-  setSongModalInfo,
-  closeModalSong,
-} from "../../store/slices/appSlice";
+import { setSongModalInfo, closeModalSong } from "../../store/slices/appSlice";
 
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
@@ -40,7 +36,6 @@ function CustomModalSong({ songItemList }) {
         detail: { type: "pause", id: songInfo.id },
       })
     );
-    console.log("asma");
   };
   return (
     <div
@@ -79,7 +74,7 @@ function CustomModalSong({ songItemList }) {
               alt=""
               className="customModalSong-audio"
               id="single-song"
-              autoplay="autoplay"
+              autoPlay="autoPlay"
               onEnded={autoNextSong}
               onPause={handlePause}
             ></audio>

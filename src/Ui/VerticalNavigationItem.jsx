@@ -7,7 +7,7 @@ function VerticalNavigationItem({ item }) {
   const [showDropdown, setShowDropdown] = useState(false);
   const navigate = useNavigate();
 
-  function handleDropdownSublink(subId) {
+  function handleDropdownSublink(subid) {
     if (showDropdown == false) {
       setShowDropdown(true);
     } else {

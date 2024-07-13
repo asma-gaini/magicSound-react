@@ -2,10 +2,6 @@ import "./optionSong.css";
 import "./ModalSingleSong.css";
 
 import OptionSongItem from "./OptionSongItem";
-import ButtonGroup from "react-bootstrap/ButtonGroup";
-import Dropdown from "react-bootstrap/Dropdown";
-import DropdownButton from "react-bootstrap/DropdownButton";
-import SplitButton from "react-bootstrap/SplitButton";
 import { useState } from "react";
 
 const optionSong_player = [

@@ -143,36 +143,6 @@ hr {
   position: relative;
   cursor: pointer;
 }
-/* .playList-item-div-image svg {
-      position: absolute;
-      opacity: 0;
-      fill: #fff;
-      width: 24px;
-      height: auto;
-      margin: 1px 0 0 1px;
-      transition: 0.5s ease;
-      left: 10px;
-      top: 10px;
-    }
-    .playList-item-div-image.active svg {
-      fill: var(--theme-color, #28b140);
-    }
-    .playList-item-div-image:hover svg {
-      opacity: 1;
-    }
-    
-    .playList-item-div-image.play svg:last-child {
-      opacity: 1;
-    }
-    .playList-item-div-image.play svg {
-      opacity: 0;
-    }
-    .playList-item-div-image.pause svg:last-child {
-      opacity: 0;
-    }
-    .playList-item-div-image.pause svg {
-      opacity: 1;
-    } */
 
 .song-action {
   position: absolute;

@@ -1,16 +1,12 @@
 import "./optionSong.css";
-import "./ModalSingleSong.css";
-import { useEffect, useState } from "react";
+import "./customModalSong.css";
+import { useState } from "react";
 import FlashCard from "./FlashCard";
-import { songs_data } from "../../utils/constants";
 
 function OptionSongItem({ item, id }) {
   const { optionName, optionSvgSrc, optionTarget, number } = item;
   const [modalShow, setModalShow] = useState(false);
 
-  // useEffect(() => {
-  //   console.log(id, modalShow);
-  // }, [modalShow]);
   return (
     <>
       <li>
@@ -36,7 +32,6 @@ function OptionSongItem({ item, id }) {
       <FlashCard
         show={modalShow}
         onHide={() => {
-          console.log("runnnn");
           setModalShow(false);
         }}
         id={id}

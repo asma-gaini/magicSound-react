@@ -28,14 +28,10 @@ function PlaylistItem({ item, songItemList }) {
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
-    // console.log("new" + item.id);
     document.addEventListener("song_event", (e) => {
-      // console.log("event id" + e.detail);
-      // console.log("new11" + item.id);
 
       switch (e.detail?.type) {
         case "pause":
-          // console.log("asmapas");
           if (item.id == e.detail.id) {
             setIsPlaying(false);
           }
@@ -56,11 +52,9 @@ function PlaylistItem({ item, songItemList }) {
   function handleTogglePlayAndPause() {
     let audio = document.querySelector("#single-song");
     if (isPlaying) {
-      console.log("isplying");
       audio.pause();
       setIsPlaying(false);
     } else {
-      console.log("not is playing");
       audio.play();
       setIsPlaying(true);
     }

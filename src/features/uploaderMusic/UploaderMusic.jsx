@@ -64,7 +64,7 @@ function UploaderMusic() {
               />
             </div>
             <div className="col-md-4">
-              <label for="language" className="form-label">
+              <label htmlFor="language" className="form-label">
                 Language
               </label>
               <select
@@ -87,23 +87,21 @@ function UploaderMusic() {
             </div>
             <div className="col-12">
               <div className="form-check">
-                <input type="checkbox" className="form-check-input" id="agree" />
+                <input
+                  type="checkbox"
+                  className="form-check-input"
+                  id="agree"
+                />
                 <label htmlFor="agree" className="form-check-label">
                   I Agree all the information is correct
                 </label>
               </div>
             </div>
             <div className="col-12 btnSection">
-              {/* <input
-                type="hidden"
-                name="uploader"
-                value={JSON.stringify(uploader)}
-              /> */}
               <button type="submit" className="btn btn-primary">
                 Uploade
               </button>
               <Link className="backBtn" to="/">
-                {" "}
                 back to play list
               </Link>
             </div>
