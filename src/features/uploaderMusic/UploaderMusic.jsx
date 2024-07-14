@@ -3,6 +3,22 @@ import { Link } from "react-router-dom";
 
 import "./uploaderMusic.css";
 
+//  **************************************************** DATA _ LANGUAGE OPTION  ****************************************************
+const language = [
+  {
+    languageName: "English",
+    languageNumber: "1",
+  },
+  {
+    languageName: "persian",
+    languageNumber: "2",
+  },
+  {
+    languageName: "china",
+    languageNumber: "3",
+  },
+];
+
 function UploaderMusic() {
   const [songName, setSongName] = useState("");
   const [songArtist, setSongArtist] = useState("");
@@ -74,15 +90,14 @@ function UploaderMusic() {
                 onChange={(e) => setSongLanguage(e.target.value)}
               >
                 <option selected="selected">Choose...</option>
-                <option className="English" lannumber="1">
-                  English
-                </option>
-                <option className="persian" lannumber="2">
-                  persian
-                </option>
-                <option className="china" lannumber="3">
-                  china
-                </option>
+                {language.map((item) => (
+                  <option
+                    className={item.languageName}
+                    lannumber={item.languageNumber}
+                  >
+                    {item.languageName}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="col-12">
