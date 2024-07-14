@@ -37,7 +37,7 @@ function LoginUser() {
     e.preventDefault();
   }
   return (
-    <section className="p-3 p-md-4 p-xl-5">
+    <section className="p-3 p-md-4 p-xl-5 loginMain">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-12 col-md-9 col-lg-7 col-xl-6 col-xxl-5">
