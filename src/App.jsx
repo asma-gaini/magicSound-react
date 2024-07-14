@@ -1,4 +1,5 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import AboutUs from "./features/aboutUs/AboutUs";
 import LoginUser from "./features/login/LoginUser";
 
 import Playlist from "./features/playList/Playlist";
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
 
       { path: "/uploadMusic", element: <UploaderMusic /> },
       { path: "/login", element: <LoginUser /> },
+      { path: "/aboutUs", element: <AboutUs /> },
     ],
   },
 ]);
