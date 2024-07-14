@@ -21,7 +21,7 @@ function FlashCard(props) {
       >
         <Modal.Header closeButton>
           <Modal.Title
-            className="fs-5"
+            className=""
             id="flashCardWord"
             onClick={props.onHide}
           >

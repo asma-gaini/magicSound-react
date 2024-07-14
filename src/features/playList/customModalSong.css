@@ -142,7 +142,7 @@ audio::-webkit-media-controls-panel {
     right: 0;
     margin-left: auto;
     margin-right: auto;
-    width: 60%;
+    width: 45%;
     pointer-events: none;
     z-index: 5;
   }
@@ -155,7 +155,7 @@ audio::-webkit-media-controls-panel {
   right: 0;
   margin-left: auto;
   margin-right: auto;
-  /* width: 90%; */
+  /* width: 98%; */
   z-index: 5;
 }
 

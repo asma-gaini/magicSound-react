@@ -82,6 +82,9 @@
   /* border-radius: var(--bs-modal-border-radius); */
   /* outline: 0; */
 }
+.modal-title {
+  color: #59657c !important;
+}
 .modalword-header {
   height: 100px;
   display: flex;

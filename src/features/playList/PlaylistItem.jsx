@@ -91,7 +91,7 @@ function PlaylistItem({ item, songItemList }) {
         {/* estefade az react icon be jaye svg va handle kardan an */}
         {!isPlaying && (
           <FaPlay
-            color="#ff0000"
+            color="rgb(234 185 156)"
             className={`song-action action-play ${
               item.id === songModalId ? "show" : ""
             }`}
@@ -99,7 +99,7 @@ function PlaylistItem({ item, songItemList }) {
         )}
         {isPlaying && (
           <FaPause
-            color="#00ff00"
+            color="rgb(58 252 58)"
             className={`song-action action-pause ${isPlaying ? "show" : ""}`}
           />
         )}
