@@ -52,6 +52,12 @@ const vertical_navigation = [
     svg: "../image/svg/upload.svg",
     target: "/uploadMusic",
   },
+  {
+    mainId: "9",
+    name: "favorit music",
+    svg: "../image/svg/heart-straight.svg",
+    target: "/favoritSongs",
+  },
 ];
 
 function VerticalNavigation() {
