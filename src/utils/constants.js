@@ -1,4 +1,4 @@
-// export const songs_data = [];
+// export let songs_data = [];
 export const songs_data = [
   {
     title: "roozaye abri-1",
@@ -254,7 +254,7 @@ export const songs_data = [
   },
 ];
 
-const favoritList = [
+export const favoritList = [
   {
     title: "roozaye abri-1",
     artist: "jahanbakhsh",
