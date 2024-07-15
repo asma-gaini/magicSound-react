@@ -7,7 +7,6 @@ import { favoritList } from "../utils/constants";
 import "../features/playList/pagination/pagination.css";
 
 const usePagination = (pageSize, songs_data) => {
-
   const navigate = useNavigate();
   const [urlParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
@@ -20,7 +19,7 @@ const usePagination = (pageSize, songs_data) => {
 
     // if (searchParams == "/") {
     //   navigate(`/?page=${currentPage}`);
-    // } else if (searchParams == "/favoritList") {
+    // } else if (searchParams == "/favoritSongs") {
     //   navigate(`/favoritSongs?page=${currentPage}`);
     // }
   }, [currentPage]);
