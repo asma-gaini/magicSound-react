@@ -13,7 +13,7 @@ const router = createBrowserRouter([
     element: <AppLayout />,
 
     children: [
-      { path: "/", element: <MainPlayList /> },
+      { path: "/", element: <Playlist /> },
       { path: "/favoritSongs", element: <FavoritPlayList /> },
 
       { path: "/uploadMusic", element: <UploaderMusic /> },

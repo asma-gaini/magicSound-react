@@ -1,5 +1,5 @@
-// export let songs_data = [];
-export const songs_data = [
+// export const songs_data = [];
+export const playList = [
   {
     title: "roozaye abri-1",
     artist: "jahanbakhsh",

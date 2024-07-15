@@ -3,7 +3,9 @@ import Table from "react-bootstrap/Table";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { songs_data } from "../../utils/constants";
+// import { songs_data } from "../../utils/constants";
+import { playList } from "../../utils/constants";
+import { favoritList } from "../../utils/constants";
 
 function FlashCard(props) {
   const [word, setWord] = useState("");
@@ -20,11 +22,7 @@ function FlashCard(props) {
         className="modalword-content"
       >
         <Modal.Header closeButton>
-          <Modal.Title
-            className=""
-            id="flashCardWord"
-            onClick={props.onHide}
-          >
+          <Modal.Title className="" id="flashCardWord" onClick={props.onHide}>
             Difficult Words
           </Modal.Title>
         </Modal.Header>
@@ -43,7 +41,7 @@ function FlashCard(props) {
               </tr>
             </thead>
             <tbody>
-              {songs_data[props.id - 1].difficultWords.map((word) => (
+              {playList[props.id - 1].difficultWords.map((word) => (
                 <tr>
                   <th scope="row">1</th>
                   <td>{word.word}</td>

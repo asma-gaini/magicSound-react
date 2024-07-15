@@ -3,6 +3,8 @@ import usePagination from "../../hooks/usePagination.js";
 import "./pagination/pagination.css";
 import Pagination from "./pagination/Pagination.jsx";
 import CustomModalSong from "./CustomModalSong.jsx";
+import { favoritList } from "../../utils/constants";
+import { playList } from "../../utils/constants";
 
 function Playlist() {
   const {
@@ -14,7 +16,7 @@ function Playlist() {
     currentPage,
     songItemList,
     pagination_size,
-  } = usePagination(4);
+  } = usePagination(2, playList);
 
   return (
     <>
@@ -28,6 +30,7 @@ function Playlist() {
                   item={item}
                   key={item.id}
                   songItemList={songItemList}
+                  
                 />
               ))}
             </ul>
