@@ -1,9 +1,9 @@
-import { Pagination } from "react-bootstrap";
 import usePagination from "../../hooks/usePagination";
 import CustomModalSong from "./CustomModalSong";
 import PlaylistItem from "./PlaylistItem";
 import { favoritList } from "../../utils/constants";
 import "./pagination/pagination.css";
+import Pagination from "./pagination/Pagination";
 
 function FavoritPlayList() {
   const {

@@ -3,14 +3,11 @@ import Table from "react-bootstrap/Table";
 import { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-// import { songs_data } from "../../utils/constants";
 import { playList } from "../../utils/constants";
-import { favoritList } from "../../utils/constants";
 
 function FlashCard(props) {
   const [word, setWord] = useState("");
   const [mean, setMean] = useState("");
-  // console.log(props.id);
 
   return (
     <>
