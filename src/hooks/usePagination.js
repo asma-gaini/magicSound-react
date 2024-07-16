@@ -7,7 +7,7 @@ const usePagination = (pageSize, songs_data) => {
   const navigate = useNavigate();
   const location = useLocation();
   const [currentPage, setCurrentPage] = useState(1);
-  const page_lenght = Math.floor(songs_data.length / pageSize);
+  const page_lenght = Math.ceil(songs_data.length / pageSize);
 
   useEffect(() => {
     navigate(`${location.pathname}?page=${currentPage}`);
