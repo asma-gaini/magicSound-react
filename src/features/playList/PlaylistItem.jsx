@@ -40,6 +40,12 @@ function PlaylistItem({ item, songItemList }) {
           }
           break;
 
+        case "play":
+          if (item.id == e.detail.id) {
+            setIsPlaying(true);
+          }
+          break;
+
         case "next_song":
           setIsPlaying(e.detail?.id === item.id);
           break;

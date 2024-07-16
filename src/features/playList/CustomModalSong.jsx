@@ -37,6 +37,13 @@ function CustomModalSong({ songItemList }) {
       })
     );
   };
+  const handlePlay = () => {
+    document.dispatchEvent(
+      new CustomEvent("song_event", {
+        detail: { type: "play", id: songInfo.id },
+      })
+    );
+  };
   return (
     <div
       className={`customModal-dialog customModal-dialog-scrollable  ${
@@ -77,6 +84,7 @@ function CustomModalSong({ songItemList }) {
               autoPlay="autoPlay"
               onEnded={autoNextSong}
               onPause={handlePause}
+              onPlay={handlePlay}
             ></audio>
             <div className="text">
               {songInfo?.textMusic.split("/").map((text, i) => (
