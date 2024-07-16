@@ -44,7 +44,6 @@ audio::-webkit-media-controls-panel {
   text-shadow: 2px 2px #000000;
 }
 .text {
-  /* background-color: #6f6f76; */
   margin: auto;
   border-radius: 10px;
   box-shadow: 3px 5px 3px 5px rgb(0 0 0 / 28%);

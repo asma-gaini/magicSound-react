@@ -256,27 +256,6 @@ export const playList = [
 
 export const favoritList = [
   {
-    title: "roozaye abri-1",
-    artist: "jahanbakhsh",
-    audioSrc:
-      "https://dl.rozmusic.com/Music/1396/10/13/Babak%20Jahanbakhsh%20-%20Roozhaye%20Abri%20(128).mp3",
-    image: "../image/music cover/Babak Jahanbakhsh - RoozHaye Abri.jpg",
-    id: 1,
-    difficultWords: [
-      {
-        word: "song1 w1",
-        mean: "آهنگ 1 ، کلمه1",
-      },
-      {
-        word: "song1 w2",
-        mean: "آهنگ 1 ، کلمه2",
-      },
-    ],
-    time: "04:49",
-    textMusic:
-      "roozaye abri-1/ روزای ابری/ I gave you your dreams/من رویا هات رو بهت دادم/ Cause you ment the world/چون تو دنیای من بودی/So did I deserve to be left in hurt/پس واقعا لیاقتم این بود که منو با این همه درد تنها بذاری/So you think I don’t know/فکر می کنی نمیدونم/You’re out of control/که تو غیر قابل کنترلی",
-  },
-  {
     title: "Parvaz-2",
     artist: "shahin najafi",
     audioSrc:
@@ -380,27 +359,6 @@ export const favoritList = [
     time: "03:49",
     textMusic:
       "khial khosh/خیال خوش/ I gave you your dreams/من رویا هات رو بهت دادم/ Cause you ment the world/چون تو دنیای من بودی/So did I deserve to be left in hurt/پس واقعا لیاقتم این بود که منو با این همه درد تنها بذاری/So you think I don’t know/فکر می کنی نمیدونم/You’re out of control/که تو غیر قابل کنترلی",
-  },
-  {
-    title: "yadam raft-7",
-    artist: "reza sadeghi",
-    audioSrc:
-      "https://dl.rozmusic.com/Music/1400/05/30/Reza%20Sadeghi%20-%20%20Yadam%20Raft%20%28128%29.mp3",
-    image: "../image/music cover/Babak Jahanbakhsh - RoozHaye Abri.jpg",
-    id: 7,
-    difficultWords: [
-      {
-        word: "song7 w1",
-        mean: "آهنگ 7 ، کلمه1",
-      },
-      {
-        word: "song7 w2",
-        mean: "آهنگ 7 ، کلمه2",
-      },
-    ],
-    time: "03:24",
-    textMusic:
-      "yadam raft/یادم رفت/ I gave you your dreams/من رویا هات رو بهت دادم/ Cause you ment the world/چون تو دنیای من بودی/So did I deserve to be left in hurt/پس واقعا لیاقتم این بود که منو با این همه درد تنها بذاری/So you think I don’t know/فکر می کنی نمیدونم/You’re out of control/که تو غیر قابل کنترلی",
   },
   {
     title: "kharabesh kardi-8",

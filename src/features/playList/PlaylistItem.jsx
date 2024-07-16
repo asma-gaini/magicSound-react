@@ -1,11 +1,9 @@
 import { useEffect, useRef, useState } from "react";
 import "./ModalSingleSong.css";
 import { FaPlay, FaPause } from "react-icons/fa";
-
 import OptionSong from "./OptionSong";
 import { useDispatch, useSelector } from "react-redux";
 import { openModalSong, setSongModalInfo } from "../../store/slices/appSlice";
-import FlashCard from "./FlashCard";
 import { useLocation } from "react-router-dom";
 
 function PlaylistItem({ item, songItemList }) {
@@ -28,7 +26,6 @@ function PlaylistItem({ item, songItemList }) {
       ? "../image/svg/heart-full.svg"
       : "../image/svg/heart-empty.svg"
   );
-  const isShow = useSelector((store) => store.app.showModalSong);
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
@@ -71,9 +68,7 @@ function PlaylistItem({ item, songItemList }) {
 
   function handleOpenModalSong() {
     dispatch(setSongModalInfo(item));
-    console.log("modal", { isPlaying });
     if (isPlaying == false) {
-      console.log("modal should open");
       dispatch(openModalSong());
     }
     handleTogglePlayAndPause();

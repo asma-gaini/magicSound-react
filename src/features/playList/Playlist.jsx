@@ -45,11 +45,6 @@ function Playlist() {
           setPage={setPage}
         />
       </div>
-      {/* <ModalSingleSong
-        show={modalOpen}
-        onHide={() => dispatch(closeSongModal())}
-        songItemList={songItemList}
-      /> */}
     </>
   );
 }

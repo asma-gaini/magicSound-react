@@ -15,7 +15,7 @@ function FavoritPlayList() {
     currentPage,
     songItemList,
     pagination_size,
-  } = usePagination(3, favoritList);
+  } = usePagination(2, favoritList);
 
   return (
     <>
