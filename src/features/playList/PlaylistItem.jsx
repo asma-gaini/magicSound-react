@@ -6,6 +6,7 @@ import OptionSong from "./OptionSong";
 import { useDispatch, useSelector } from "react-redux";
 import { openModalSong, setSongModalInfo } from "../../store/slices/appSlice";
 import FlashCard from "./FlashCard";
+import { useLocation } from "react-router-dom";
 
 function PlaylistItem({ item, songItemList }) {
   const {
@@ -19,17 +20,19 @@ function PlaylistItem({ item, songItemList }) {
     textMusic,
   } = item;
 
+  const location = useLocation();
   const dispatch = useDispatch();
   const songModalId = useSelector((store) => store.app.songModalInfo?.id);
   const [favoritSong, setFavoritSong] = useState(
-    "../image/svg/heart-empty.svg"
+    location.pathname == "/favoritSongs"
+      ? "../image/svg/heart-full.svg"
+      : "../image/svg/heart-empty.svg"
   );
   const isShow = useSelector((store) => store.app.showModalSong);
   const [isPlaying, setIsPlaying] = useState(false);
 
   useEffect(() => {
     document.addEventListener("song_event", (e) => {
-
       switch (e.detail?.type) {
         case "pause":
           if (item.id == e.detail.id) {
