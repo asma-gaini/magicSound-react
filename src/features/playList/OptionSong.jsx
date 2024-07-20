@@ -6,9 +6,9 @@ import { useState } from "react";
 
 const optionSong_player = [
   {
-    optionName: "Add to favorite",
-    optionSvgSrc: "../image/svg/heart-empty.svg",
-    optionTarget: "#",
+    optionName: "Export difficult words",
+    optionSvgSrc: "../image/svg/upload.svg",
+    optionTarget: "../pdf/testPdf.pdf",
     number: "1",
   },
   {

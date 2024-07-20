@@ -26,6 +26,20 @@ function OptionSongItem({ item, id }) {
               {optionName}
             </a>
           )}
+          {optionName == "Export difficult words" ? (
+            <a
+              className="dropdown-item"
+              href={optionTarget}
+              number={number}
+              download
+            >
+              <button> {optionName} </button>
+            </a>
+          ) : (
+            <a className="dropdown-item" href={optionTarget} number={number}>
+              {optionName}
+            </a>
+          )}
         </div>
       </li>
 
