@@ -15,7 +15,7 @@ function Playlist() {
     currentPage,
     songItemList,
     pagination_size,
-  } = usePagination(4, playList);
+  } = usePagination(2, playList);
 
   return (
     <>
@@ -29,7 +29,6 @@ function Playlist() {
                   item={item}
                   key={item.id}
                   songItemList={songItemList}
-                  
                 />
               ))}
             </ul>
